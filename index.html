@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="english">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consent Widget</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Top boxed section -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consent Widget</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top boxed section -->
     <div class="top-box">
       <div class="top-grid">
         <div class="top-field">
@@ -30,43 +30,36 @@
           <input type="tel" id="phone" name="phone" />
         </div>
       </div>
-    </div>
-
-    <div class="widget-container">
-      <div class="header-container">
-        <div class="logo" id="logo-area"></div>
-        <div id="language-wrapper" style="display: none">
-          <label for="langSelect">Language:</label>
-          <select id="langSelect"></select>
-        </div>
-      </div>
-      <div id="consent-root">Loading consent form...</div>
-      <div id="error-message" class="error-message"></div>
-      <div id="toast"></div>
-      <div class="button-group" id="button-group">
-        <button class="cancel" id="cancelBtn" style="display: none">
-          Cancel
-        </button>
-        <button class="submit" id="submitBtn" style="display: none">
-          Submit
-        </button>
+  </div>
+  <div class="widget-container">
+    <div class="header-container">
+      <div class="logo" id="logo-area"></div>
+      <div id="language-wrapper" style="display: none;">
+        <label for="langSelect">Language:</label>
+        <select id="langSelect"></select>
       </div>
     </div>
-    <script>
-      // Configuration options for the consent widget
-      window.consentWidgetConfig = {
-        consentFormId: "8beed0fe-a28e-40b8-a454-64ffbee636d5",
-        apiUrl:
-          "https://demo-shp.qhtpl.com/cpm-api/consent/v1/getConsentFormById",
-        submitApiUrl:
-          "https://demo-shp.qhtpl.com/cpm-api/consent/v1/createOrUpdateConsent",
-        showButtons: true,
-        showLanguageDropdown: true,
-        enableCheckboxes: true,
-        enableRadioButtons: true,
-        enableDropdowns: true,
-      };
-    </script>
-    <script src="script.js"></script>
-  </body>
+    <div id="consent-root">Loading consent form...</div>
+    <div id="error-message" class="error-message"></div>
+    <div id="toast"></div>
+    <div class="button-group" id="button-group">
+      <button class="cancel" id="cancelBtn" style="display: none;">Cancel</button>
+      <button class="submit" id="submitBtn" style="display: none;">Submit</button>
+    </div>
+  </div>
+  <script>
+    // Configuration options for the consent widget
+    window.consentWidgetConfig = {
+      consentFormId: "8beed0fe-a28e-40b8-a454-64ffbee636d5",
+      apiUrl: "https://demo-shp.qhtpl.com/cpm-api/consent/v1/getConsentFormById",
+      submitApiUrl: "https://demo-shp.qhtpl.com/cpm-api/consent/v1/createOrUpdateConsent",
+      showButtons: true,
+      showLanguageDropdown: true,
+      enableCheckboxes: true,
+      enableRadioButtons: true,
+      enableDropdowns: true
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -32,20 +32,28 @@
       </div>
   </div>
   <div class="widget-container">
+   	<div class="header-language-wrapper-container ">
+		<div id="language-wrapper" style="display: none;">
+		    <div class="dropdown">
+			<label for="langSelect">Language Preference <br></label>
+			<select id="langSelect"></select>
+			</div>
+		</div>  
+	</div>
     <div class="header-container">
-      <div class="logo" id="logo-area"></div>
-      <div id="language-wrapper" style="display: none;">
-        <label for="langSelect">Language:</label>
-        <select id="langSelect"></select>
+      <div class="logo-area" id="logo-area"></div>
+    </div>
+    	<div class ="preview-statements">
+        <div id="consent-root">Loading consent form...</div>
+        <div id="error-message" class="error-message"></div>
+        <div id="toast"></div>
+      </div> 
+      <div class="full-width-footer-border"></div>
+      <div class="button-group" id="button-group">
+          <button class="cancel" id="cancelBtn" style="display: none;">Cancel</button>
+          <button class="submit" id="submitBtn" style="display: none;">Submit</button>
       </div>
-    </div>
-    <div id="consent-root">Loading consent form...</div>
-    <div id="error-message" class="error-message"></div>
-    <div id="toast"></div>
-    <div class="button-group" id="button-group">
-      <button class="cancel" id="cancelBtn" style="display: none;">Cancel</button>
-      <button class="submit" id="submitBtn" style="display: none;">Submit</button>
-    </div>
+    
   </div>
   <script>
     // Configuration options for the consent widget

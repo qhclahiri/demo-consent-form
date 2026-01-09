@@ -1,61 +1,335 @@
+/* Base Styling */
 body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
-  padding: 20px;
+  margin: 0;
+  min-height: 100vh;
+
+  /* Center the widget dynamically on screen */
+  display: flex;
+  flex-direction: column; /* stack top and bottom vertically */
+  justify-content: center;
+  align-items: center;
 }
 
+/*  Widget Container */
 .widget-container {
+  display: flex;
+  flex-direction: column;
   background: #fff;
-  max-width: 700px;
-  margin: auto;
+  width: 90%;                  /* responsive width */
+  max-width: 700px;            /* cap width on large screens */
+  max-height: 90vh;            /* dynamic height */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;            /* hide overflow outside container */
 }
 
+/*  Header Section */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  flex-shrink: 0;              /* prevent shrinking */
+    }
+
+
+/* --- Basic widget / header container --- */
+.widget-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  box-sizing: border-box;
+  padding: 25px;
 }
 
-.logo img {
-  max-height: 60px;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 0;
 }
 
+/* --- Logo area (base styles) --- */
+.logo-area {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+  box-sizing: border-box;
+  padding: 2px 0;
+}
+
+/* Logo image */
+.logo-area .branding-logo {
+  display: block;
+  height: 36px;       /* adjust to suit your design */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Text wrapper next to logo */
+.logo-area .branding-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Company name & optional subtitle */
+.company-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: #111;
+  white-space: nowrap;
+}
+
+.company-subtitle {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* ---------------- Alignment variants ---------------- */
+/* LEFT: logo then name, left aligned */
+.logo-area.left {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+}
+
+/* CENTER: stacked, centered */
+.logo-area.center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.logo-area.center .branding-logo {
+  margin-bottom: 6px;
+}
+.logo-area.center .branding-text {
+  align-items: center;
+}
+
+/* RIGHT: name then logo (row-reverse) */
+.logo-area.right {
+  flex-direction: row-reverse; /* name left, logo right */
+  justify-content: end;
+  text-align: right;
+  align-items: center;
+}
+
+/* Keep spacing consistent when using row-reverse */
+.logo-area.right .branding-text { text-align: right; }
+
+/* ---------------- Responsive: small screens -> stacked ---------------- */
+@media (max-width: 600px) {
+  .header-container {
+    justify-content: center;
+  }
+
+  .logo-area,
+  .logo-area.left,
+  .logo-area.right {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-area .branding-logo {
+    height: 30px;
+  }
+
+  .company-name { font-size: 15px; white-space: normal; }
+  .company-subtitle { font-size: 12px; }
+}
+
+/* Optional: quick utility for hiding placeholder image when not available */
+.branding-logo.hidden { display: none; }
+
+
+.header-language-wrapper-container {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-shrink: 0;              /* prevent shrinking */
+  height: 93px;
+  background-color: #F9F9FF;
+  border-radius: 4px;
+  font: normal normal bold 12px / 20px 'Noto Sans', sans-serif;
+  letter-spacing: 0px;
+  color: #606190;
+  padding-left: 20px;
+
+
+}
+
+.dropdown {
+  width: 199px;
+}
+
+/* Label styling */
+.dropdown label {
+  font-weight: bold;
+  font-size: 12px;
+  color: #606190;
+}
+
+/* Actual select box styling */
+.dropdown select {
+  width: 100%;
+  background: #FAFBFF;
+  border: 1px solid #E2E2FB;
+  border-radius: 2px;
+  font-size: 12px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #5B5D98;
+  padding: 8px 10px;
+  cursor: pointer;
+  appearance: none;              /* hide native dropdown arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23606190" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Optional hover/focus effects for better UX */
+.dropdown select:hover,
+.dropdown select:focus {
+  border-color: #606190;
+  outline: none;
+}
+
+/* Dynamic Preview Area */
+.preview-statements {
+  flex: 1;                     /* takes remaining space dynamically */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;          /* for scrollbar spacing */
+}
+/* Permission Blocks */
 .permission-block {
   margin-bottom: 20px;
 }
 
+/* Question (p or heading tag inside permission-block) */
+.permission-block p {
+  margin: 0 0 6px 0;       /* uniform spacing after question */
+  font-size: 14px;
+  color: #606190;
+}
+
+/* Label (for radio or checkbox) */
 .permission-block label {
-  display: block;
-  margin: 5px 0;
-}
-
-.button-group {
-  margin-top: 20px;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;                 /* spacing between input and text */
+  margin: 6px 0;
+  font-size: 12px;
+  color: #43436C;
+  line-height: 1.4;
 }
 
+/* Align input elements neatly */
+.permission-block input[type="radio"],
+.permission-block input[type="checkbox"] {
+  vertical-align: middle;
+  margin: 0;
+  transform: translateY(-1px); /* tiny tweak for visual centering */
+}
+
+/* Dropdown styling */
+.permission-block select {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #43436C;
+  padding: 4px 28px 4px 8px;   /* add space for arrow */
+  border: 1px solid #E2E2FB;   /* subtle light border */
+  border-radius: 2px;
+  background-color: #fff;
+  width: auto;
+  min-width: 120px;
+  appearance: none;            /* hide native arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23606190" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 15px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* On hover or focus — subtle highlight, not thick border */
+.permission-block select:hover,
+.permission-block select:focus {
+  border-color: #606190;      /* highlight color */
+  outline: none;
+  box-shadow: none;           /* no thick shadow */
+}
+
+/* Optional: disabled state */
+.permission-block select:disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+
+  /* Button group with flexbox for dynamic alignment */
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start; /* Default alignment */
+    }
+
+    /*  Align buttons based on footerAlignment: left, center, or right */
+    .button-group.left {
+      justify-content: flex-start;
+    }
+
+    .button-group.center {
+      justify-content: center;
+    }
+
+    .button-group.right {
+      justify-content: flex-end;
+    }
+
+/*  Buttons */
 button {
   padding: 10px 20px;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .submit {
+  padding: 6px 24px;    
   background-color: #007bff;
   color: #fff;
+  border: 2px solid;
 }
 
 .cancel {
+  padding: 6px 24px;    
   background-color: #6c757d;
   color: #fff;
+  border: 2px solid;
 }
 
+button:hover {
+  opacity: 0.9;
+}
+
+/*  Error Messages */
 .error-message {
   color: red;
   font-size: 12px;
@@ -67,31 +341,58 @@ button {
   border: 1px solid red !important;
 }
 
+.full-width-footer-border {
+    border-bottom: 2px solid #EBEDEE;
+    width: calc(100% + 3.33rem);
+    margin-left: -1.7rem;
+    margin-right: -1rem;
+}
+
+/* Question line (make sure question + * are inline) */
+.permission-title {
+  display: inline-flex;
+  align-items: baseline; /* keep * aligned nicely with text baseline */
+  font-size: 14px;
+  color: #606190;
+  margin: 0 0 6px 0;
+  gap: 2px;
+}
+
+/* Asterisk — same style as text, inline */
+.permission-title .mandatory {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+
+
+/* Toast Notification - Centered */
 #toast {
-  visibility: hidden;
-  min-width: 175px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 4px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1000;
-  right: 10px;
-  top: 10px;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+      visibility: hidden;
+      min-width: 175px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1000;
+      right: 10px;
+      top: 10px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-#toast.show {
-  visibility: visible;
-  opacity: 1;
-}
-
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
 /* --- Top boxed section: match widget look --- */
 .top-box {
+  width: 90%;
   max-width: 700px;
   margin: 0 auto 16px;
   background: #fff;
